@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <title>Registratsiya</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container navbar__container">
+            <ul class="navbar__list">
+                <li class="navbar__item">
+                    <img src="./img/photo_2024-02-19_20-32-36.jpg" alt="logo">
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="login.html">Kirish</a>
+                    <a class="navbar__link" href="index.html">Ro'yxatdan o'tish</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container content__container">
+            <h1 class="content__title">Ro'yxatdan o'tish</h1>
+            <p class="content__text">Barcha daromatlaringiz va harajatlaringizni bir joyda kuzatib borish uchun hoziroq ro'yxatdan o'ting!</p>
+            <form class="registr__form">
+                <div class="content__input">
+                    <label for="content">Elektron pochta</label>
+                    <input class="content__input" type="email" id="content__email-input" required placeholder="Emailni kiriting">
+                </div>
+                <div class="content__password">
+                    <label for="content__password-input">Parol</label>
+                    <input class="content__input" type="password" id="content__password-input" required placeholder="Parolni kiriting">
+                </div>
+                <div class="content__user">
+                    <label for="content__user-input">Foydalanuvchi nomi</label>
+                    <input class="content__input" type="text" id="content__user-input" required placeholder="Foydalanuvchi nomini kiriting">
+                </div>
+                <button class="content__btn">Ro'yxatdan o'tish</button>
+            </form>
+                <div class="content__box">
+                    <p class="content__desc">Accountingiz mavjudmi?</p>
+                    <a href="login.html" class="content__sublink">Kirish</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            const registrForm = document.querySelector(".registr__form")
+            const username = document.querySelector("#content__user-input")
+            const password = document.querySelector("#content__password-input")
+            const email = document.querySelector("#content__email-input")
+
+            registrForm.addEventListener("submit", function(event){
+                event.preventDefault();
+                
+                if(localStorage.getItem("localEmail") !== email.value || localStorage.getItem("localUsername") !== username.value){
+                    localStorage.setItem("localUsername", username.value)
+                    localStorage.setItem("localPassword", password.value)
+                    localStorage.setItem("localEmail", email.value)
+                    alert("Siz muvaffaqqiyatli ro'yxatga o'tdingiz")
+                    window.location.href="login.html"
+                }
+                else{
+                    alert("Username yoki email xato")
+                }
+            })
+        </script>
+</body>
+</html>

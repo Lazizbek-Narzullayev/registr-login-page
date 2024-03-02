@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container navbar__container">
+            <ul class="navbar__list">
+                <li class="navbar__item">
+                    <img src="./img/photo_2024-02-19_20-32-36.jpg" alt="logo">
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="login.html">Kirish</a>
+                    <a class="navbar__link" href="registr.html">Ro'yxatdan o'tish</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container content__container">
+            <h1 class="content__title">Kirish</h1>
+            <p class="content__text">Barcha daromatlaringiz va harajatlaringizni bir joyda kuzatib borish uchun hoziroq tizimga kiring!</p>
+            <form class="login__form">
+                <div class="content__input">
+                    <label for="content__email-input">Elektron pochta</label>
+                    <input class="content__input" type="email" id="content__email-input" required placeholder="Emailni kiriting">
+                </div>
+                <div class="content__password">
+                    <label for="content__password-input">Parol</label>
+                    <input class="content__input" type="password" id="content__password-input" required placeholder="Parolni kiriting">
+                </div>
+                <div class="content__link-box">
+                    <a href="forgotten1.html" class="content__link">Parolni unutdingizmi?</a>
+                </div>
+                <button class="content__btn">Kirish</button>
+            </form>
+                <div class="content__box">
+                    <p class="content__desc">Accountingiz mavjud emasmi?</p>
+                    <a href="index.html" class="content__sublink">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const loginForm = document.querySelector(".login__form")
+            const username = document.querySelector("#content__user-input")
+            const password = document.querySelector("#content__password-input")
+            const email = document.querySelector("#content__email-input")
+
+            loginForm.addEventListener("submit", function(event){
+                event.preventDefault();
+                
+                if(localStorage.getItem("localEmail") === email.value && 
+                localStorage.getItem("localPassword") === password.value){
+                    window.location.href="root.html"
+                }
+                else{
+                    alert("Email yoki parol xato")
+                }
+            })
+        </script>
+</body>
+</html>

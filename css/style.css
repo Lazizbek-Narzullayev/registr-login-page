@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url(../img/sky.jpg);
+    background-size: cover;
+}
+.div{
+    position: absolute;
+    animation: 0.2s ease-out;
+}
+img{
+    width: 200px;
+    height: 100px;
+}
